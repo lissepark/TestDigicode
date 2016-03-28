@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+  <head>
+    <title>DC Test</title>
+    <link rel="stylesheet" href='/stylesheets/bootstrap.css'/>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='lib/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all' />
+  </head>
+  <body>
+  <nav ng-class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+          <div class="navbar-header">
+              <a class="navbar-brend" href="#">Test DC</a>              
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#!/users">Users list</a></li>
+                  <li><a href="#!/users/create">Add User</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+  
+    <div ng-view></div>
+
+    <script type="text/javascript" src="/lib/angular/angular.js"></script>
+    <script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="/lib/angular-ui-scroll/dist/ui-scroll.js"></script>
+    <script type="text/javascript" src="/lib/angular-ui-scroll/dist/ui-scroll-jqlite.js"></script>
+    <script type="text/javascript" src="/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="/lib/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="/lib/angular-sanitize/angular-sanitize.js"></script>
+    <script type="text/javascript" src="/lib/angular-loading-bar/build/loading-bar.min.js"></script>
+
+    <script type="text/javascript" src="/users/users.client.module.js"></script>
+	<script type="text/javascript" src="/users/controllers/users.client.controller.js"></script>
+	<script type="text/javascript" src="/users/services/users.client.service.js"></script>
+	<script type="text/javascript" src="/users/config/users.client.routes.js"></script>    
+    <script type="text/javascript" src="/application.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" 
+    	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </body>
+</html>

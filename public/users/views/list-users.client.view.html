@@ -1,0 +1,118 @@
+<section data-ng-controller="UsersController" data-ng-init="find()">
+<div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li>
+            <h5>Set modal windows for Edit</h5>
+            <input type="checkbox" ng-model="getmodal">
+        </li>            
+    </ul>
+</div>
+<div class="clear"></div>
+<h2 class="sub-header">Users</h2>
+<button ng-click="createAuto()">Create 105 Users</button>
+
+<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>
+						<button ng-click="order('lastName')">Surname</button>
+         				<span class="sortorder" ng-show="predicate === 'lastName'" ng-class="{reverse:reverse}"></span>
+					</th>
+					<th>
+						<button ng-click="order('firstName')">Name</button>
+         				<span class="sortorder" ng-show="predicate === 'firstName'" ng-class="{reverse:reverse}"></span>
+					</th>
+					<th>
+						<button ng-click="order('email')">E-mail</button>
+         				<span class="sortorder" ng-show="predicate === 'email'" ng-class="{reverse:reverse}"></span>
+					</th>
+					<th>
+						<button ng-click="order('age')">Age</button>
+         				<span class="sortorder" ng-show="predicate === 'age'" ng-class="{reverse:reverse}"></span>
+					</th>
+					<th>
+						<button ng-click="order('gender')">Gender</button>
+         				<span class="sortorder" ng-show="predicate === 'gender'" ng-class="{reverse:reverse}"></span>
+					</th>
+					<th></th>
+					<th></th>
+					<th>
+						<button ng-click="deleteList()">Delete</button>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in showUsers | orderBy:predicate:reverse">
+					<td>{{users.indexOf(user)+1}}</td>
+					<td data-ng-bind="user.lastName"></td>
+					<td data-ng-bind="user.firstName"></td>
+					<td data-ng-bind="user.email"></td>
+					<td data-ng-bind="user.age"></td>
+					<td data-ng-bind="user.gender"></td>
+					<td ng-if="getmodal == true">						
+						<button type="button" class="btn btn-warning" ng-click="editModalDialog()" title="Edit User">Edit</button>						
+					</td>					
+					<td ng-if="getmodal == false">
+						<a data-ng-href="#!/users/{{user._id}}/edit">			
+						<button type="button" class="btn btn-warning" title="Edit User">Edit</button>						
+					</td>
+					<td>
+						<a data-ng-href="#!/users/{{user._id}}/delete">
+						<button type="button" class="btn btn-danger">Delete</button>
+						</a>
+					</td>
+					<td>
+						<input type="checkbox" ng-model="user.check">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<div class="textShowList">
+		<h3>Show the number in the list</h3>
+	</div>
+	<div class="btn-group">
+	  <button type="button" class="btn btn-primary">Primary</button>
+	  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	    <span class="caret"></span>
+	    <span class="sr-only">Toggle Dropdown</span>
+	  </button>
+	  <ul class="dropdown-menu">
+	    <li ng-click="numPerPage=20">20</li>
+	    <li ng-click="numPerPage=40">40</li>
+	    <li ng-click="numPerPage=60">60</li>
+	    <li ng-click="numPerPage=100">100</li>
+	  </ul>
+	</div>
+	<div class="clear"></div>
+
+	<uib-pagination total-items="users.length" ng-model="currentPage" max-size="maxSize" boundary-links="true" items-per-page="numPerPage"></uib-pagination>
+
+<!--
+	<div class="viewport" id="viewport-tableScroller" ui-scroll-viewport>
+		<table>
+			<tbody>
+			<tr ui-scroll="item in datasource">
+				<td>
+					dddd
+				</td>
+				<td>
+					{{item}}
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+-->
+				
+	<!--
+	<div data-ng-hide="!users || users.length">
+		No users yet, why don't you <a href="/#!/users/create">create one</a>?
+	</div>
+	-->
+</section>

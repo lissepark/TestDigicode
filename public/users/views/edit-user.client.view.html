@@ -1,0 +1,49 @@
+<section ng-controller="UsersController" ng-init="findOne()">
+	<h1>Edit User</h1>
+	<form class="form-edit" ng-submit="update()">
+		<div>
+			<label for="lastName">Surname</label>
+			<div>
+				<input type="text" ng-model="user.lastName" id="lastName2" ng-attr-placeholder="{{user.lastName}}" required>
+			</div>
+		</div>
+		<div>
+			<label for="firstName">Name</label>
+			<div>
+				<input type="text" ng-model="user.firstName" id="firstName2" ng-attr-placeholder="{{user.firstName}}" required>
+			</div>
+		</div>
+		<div>
+			<label for="email">E-mail</label>
+			<div>
+				<input type="email" ng-model="user.email" id="email2">
+			</div>
+		</div>
+		<div>
+			<label for="age">Age</label>
+			<div>
+				<input type="number" ng-model="user.age" id="age2" ng-attr-placeholder="{{user.age}}" required>
+			</div>
+		</div>
+		<div>
+			<label for="gender">Gender</label>
+			<div>
+				<input type="text" ng-model="user.gender" id="gender2" ng-attr-placeholder="{{user.gender}}" required>
+			</div>
+		</div>
+	<div>
+		<input type="submit">
+	</div>
+	<div ng-show="error">
+		<strong ng-bind="error"></strong>
+	</div>
+	</form>
+	<div ng-if="getmodal == true">
+		<!--<button ng-click="cancel()">Cancel</button>-->
+		<a href="#!/users">Cancel</a>
+	</div>
+	<div ng-if="getmodal == false">
+		<a href="#!/users">Cancel</a>
+	</div>
+	
+</section>

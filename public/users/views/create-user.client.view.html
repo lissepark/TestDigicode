@@ -1,0 +1,42 @@
+<section data-ng-controller="UsersController">
+	<h1>New User</h1>
+	<form data-ng-submit="create()">
+		<div>
+			<label for="lastName">Surname</label>
+			<div>
+				<input type="text" data-ng-model="lastName" id="lastName" placeholder="Surname" required>
+			</div>
+		</div>
+		<div>
+			<label for="firstName">Name</label>
+			<div>
+				<input type="text" data-ng-model="firstName" id="firstName" placeholder="Name" required>
+			</div>
+		</div>
+		<div>
+			<label for="email">E-mail</label>
+			<div>
+				<input type="text" data-ng-model="email" id="email" placeholder="Email" required>
+			</div>
+		</div>
+		<div>
+			<label for="age">Age</label>
+			<div>
+				<input type="number" data-ng-model="age" id="age" placeholder="Age" required>
+			</div>
+		</div>
+		<div>
+			<label for="gender">Gender</label>
+			<div>
+				<input type="radio" value="Male" data-ng-model="gender" checked/>Male
+      			<input type="radio" value="Female" data-ng-model="gender" />Female
+			</div>
+		</div>
+		<div>
+			<input type="submit">
+		</div>
+		<div data-ng-show="error">
+			<strong data-ng-bind="error"></strong>
+		</div>
+	</form>
+</section>

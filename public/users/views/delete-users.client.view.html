@@ -1,0 +1,28 @@
+<section data-ng-controller="UsersController" data-ng-init="findOne()">
+	<h1>Are you sure you want to delete User:</h1>
+	<form data-ng-submit="">
+		<div>
+			<label for="lastName">Surname</label>
+			<div>
+				<input type="text" data-ng-model="lastName" id="lastName2" ng-attr-placeholder="{{user.lastName}}" required>
+			</div>
+		</div>
+		<div>
+			<label for="firstName">Name</label>
+			<div>
+				<input type="text" data-ng-model="firstName" id="firstName2" ng-attr-placeholder="{{user.firstName}}" required>
+			</div>
+		</div>
+	<div>
+		
+	</div>
+
+	<a data-ng-href="#!/users" data-ng-click="delete();">
+		<button type="button" class="btn btn-danger">Delete</button>
+	</a>
+
+	<div data-ng-show="error">
+		<strong data-ng-bind="error"></strong>
+	</div>
+	</form>
+</section>

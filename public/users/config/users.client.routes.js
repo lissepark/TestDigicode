@@ -9,6 +9,8 @@ angular.module('users').config(['$routeProvider', function($routeProvider) {
 		templateUrl: 'users/views/edit-user.client.view.html'
 	}).when('/users/:userId/delete', {
 		templateUrl: 'users/views/delete-users.client.view.html'
+	}).when('/', {
+		templateUrl: 'users/views/start.client.view.html'
 	});;
 }
 ]);

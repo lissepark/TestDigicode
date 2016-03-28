@@ -31,7 +31,7 @@
          				<span class="sortorder" ng-show="predicate === 'email'" ng-class="{reverse:reverse}"></span>
 					</th>
 					<th>
-						<button ng-click="order('age')">Age</button>
+						<button ng-click="order('age','number')">Age</button>
          				<span class="sortorder" ng-show="predicate === 'age'" ng-class="{reverse:reverse}"></span>
 					</th>
 					<th>
@@ -58,7 +58,8 @@
 					</td>					
 					<td ng-if="getmodal == false">
 						<a data-ng-href="#!/users/{{user._id}}/edit">			
-						<button type="button" class="btn btn-warning" title="Edit User">Edit</button>						
+						<button type="button" class="btn btn-warning" title="Edit User">Edit</button>
+						</a>						
 					</td>
 					<td>
 						<a data-ng-href="#!/users/{{user._id}}/delete">

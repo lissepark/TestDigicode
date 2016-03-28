@@ -56,9 +56,18 @@ angular.module('users').controller('UsersController', ['$scope', '$routeParams',
 		$scope.predicate = 'lastName';
   		$scope.reverse = false;
 
-  		$scope.order = function(predicate) {
+  		$scope.order = function(predicate, isNumber) {
 	    	$scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : true;
 	    	$scope.predicate = predicate;
+	    	if(angular.isDefined(isNumber)) {
+            	angular.forEach($scope.users, function (obj) {
+            		for(var i in obj ) {
+               			if(i == predicate && obj[i] != '') {
+                  			obj[i] =  parseInt(obj[i]);       
+               			}
+            		}
+           		});
+        	}
   		};
 
   		$scope.createAuto = function() {
